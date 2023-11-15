@@ -2,6 +2,7 @@
 export const DefaultCfg = {
     color: true,
     show_path: true,
+    write_logs: false,
     theme: {
         timestamp: "ffffff",
         text: "",
@@ -16,13 +17,19 @@ export const DefaultCfg = {
             packet: "0033cc"
         },
         path: ["#FFFFFF"]
+    },
+    log_files: {
+        save_path: "./logs",
+        save_interval: 60000
     }
 }
 
 export type Config = {
     color: boolean,
     show_path: boolean,
+    write_logs: boolean,
     theme: ThemeCfg,
+    log_files: LogFilesCfg,
 }
 
 export type ThemeCfg = {
@@ -41,4 +48,9 @@ type LogLevelCfg = {
     info: string,
     debug: string,
     packet: string
+}
+
+type LogFilesCfg = {
+    save_path: string,
+    save_interval: number
 }
