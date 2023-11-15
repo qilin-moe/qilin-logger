@@ -46,6 +46,7 @@ const {Logger} = require('qilin-logger');
 const customcfg = {
     color: true,
     show_path: true,
+    write_logs: false,
     theme: {
         timestamp: "ffffff",
         text: "",
@@ -60,6 +61,10 @@ const customcfg = {
             packet: "0033cc"
         },
         path: ["#FFFFFF"]
+    },
+    log_files: {
+        save_path: "./logs",
+        save_interval: 60000 // timing is in MS, defaults to 1 minute
     }
 }
 ```
@@ -82,6 +87,7 @@ const {Logger} = require('qilin-logger');
 const customcfg = {
     color: true,
     show_path: true,
+    write_logs: false,
     theme: {
         timestamp: "ffffff",
         text: "",
@@ -96,6 +102,10 @@ const customcfg = {
             packet: "0033cc"
         },
         path: ["#FFFFFF"]
+    },
+    log_files: {
+        save_path: "./logs",
+        save_interval: 60000 // timing is in MS, defaults to 1 minute
     }
 }
 
