@@ -84,8 +84,10 @@ export class Logger {
                 message += ` @ ${this.path}:`
                 this.pending += `⌞${prefix.string}⌝ DEBUG @ ${this.raw_path}: ${args} \n`
 
-                // force save any lines that will not be caught by save interval
-                this.saveLogs(this.config);
+                if (this.config.write_logs) {
+                    // force save any lines that will not be caught by save interval
+                    this.saveLogs(this.config);
+                }
                 this.pending = "";
 
                 if (this.theme.debugtext !== "") {
@@ -98,6 +100,13 @@ export class Logger {
                 message = `⌞${colorize(prefix.string, this.theme.timestamp, false)}⌝ ${colorize("PACKET", this.theme.log_level.packet, false)}⌞${args[0]}, ${args[1]}⌝ \n`
                 this.pending += `⌞${prefix.string}⌝ PACKET ⌞${args[0]}, ${args[1]}⌝ \n ${args[2]} \n`
                 console.log(message, args[2]); // ⌞timestamp⌝  PACKET [rcv/snt, 1]: \n content
+
+                if (this.config.write_logs) {
+                    // force save any lines that will not be caught by save interval
+                    this.saveLogs(this.config);
+                }
+
+                this.pending = "";
                 return;
         }
 
@@ -117,8 +126,10 @@ export class Logger {
 
         this.pending += ` ${args} \n`
 
-        // force save any lines that will not be caught by save interval
-        this.saveLogs(this.config);
+        if (this.config.write_logs) {
+            // force save any lines that will not be caught by save interval
+            this.saveLogs(this.config);
+        }
         this.pending = "";
         return;
     }
