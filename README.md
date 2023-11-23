@@ -18,7 +18,7 @@
 <h3 align="center"><b>Add to project</b></h3>
 
 ```shell
-npm install https://github.com/qilin-moe/qilin-logger.git#ts
+npm install git+https://github.com/qilin-moe/qilin-logger.git\#ts
 ```
 ```json
 "qilin-logger": "github:qilin-moe/qilin-logger#ts",
