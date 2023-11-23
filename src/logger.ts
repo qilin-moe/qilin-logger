@@ -138,8 +138,7 @@ export class Logger {
 
     saveLogs(config: Config) {
         return new Promise<void>((resolve, reject) => {
-            console.log('currently processing', this.pending)
-            const date = dateFormat(Date.now(), "yyyy_mm_dd", false, false);
+            const date = dateFormat(Date.now(), "yyyy-mm-dd_HH-MM-ss", false, false);
             if (this.pending)
                 fs.appendFile(path.join(config.log_files.save_path, date + '.log'), this.pending, (err) => {
                     if (err) return reject(err);
